@@ -1,0 +1,13 @@
+{
+    "env": {
+        "serviceworker": true,
+        "browser": true
+    },
+    "extends": "xo-space/browser",
+    "rules": {
+        "no-restricted-globals": [
+            "off",
+            "self"
+        ]
+    }
+}
