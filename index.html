@@ -18,29 +18,107 @@
     <meta name="apple-mobile-web-app-title" content="Jonathan Bowman">
     <script src="/js/utility.js"></script>
     <style>
-        @media (prefers-color-scheme: light) {
-            body {
-                color: #111;
-                background-color: white;
-            }
+        body {
+            color: #111;
+            fill: #111;
+            background-color: white;
         }
+
+        .drawing {
+            filter: brightness(10%);
+        }
+
+        main {
+            width: 100%;
+
+        }
+
 
         @media (prefers-color-scheme: dark) {
             body {
                 color: #ddd;
+                fill: #ddd;
                 background-color: black;
+            }
+
+            .drawing {
+                filter: brightness(90%);
             }
         }
 
-        body,
+        @media all and (min-width: 600px) {
+            main {
+                width: 70rem;
+            }
+
+        }
+
         html {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: system-ui, sans-serif;
+            height: 100%;
+            padding: 0;
+            margin: .25rem;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        header {
             align-items: center;
             display: flex;
-            font-family: system-ui;
-            height: 100%;
-            justify-content: center;
+            flex-direction: row;
+            flex-shrink: 0;
+        }
+
+        header .title {
+            flex-shrink: 0;
+            font-size: 1.5rem;
+            font-weight: bolder;
+            height: 2.5rem;
+            line-height: 2.5rem;
+            margin-left: .25rem;
+        }
+
+        header .title a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header nav {
+            flex: 1 0 auto;
+        }
+
+        header .menu {
+            flex-shrink: 0;
+            padding-right: .5rem;
+            position: relative;
+        }
+
+        header .menu ul {
+            padding: 1rem;
+            line-height: 2rem;
             margin: 0;
-            padding: 0;
+            position: absolute;
+            right: 0;
+            top: 2rem;
+        }
+
+        header svg,
+        header img {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        header .menu a {
+            color: inherit;
+            text-decoration: none;
         }
 
         ul.biglist {
@@ -50,19 +128,67 @@
             padding: 0;
         }
 
+        ul.biglist a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        main {
+            flex: 1 0 auto;
+            align-items: center;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        footer {
+            flex-shrink: 0;
+            font-size: 0.8rem;
+        }
+
         #install_pwa {
             display: none;
+            cursor: pointer;
+        }
+
+        #topmenu {
+            display: none
         }
     </style>
 </head>
 
 <body>
-    <ul class="biglist">
-        <li>Articles</li>
-        <li>Experience</li>
-        <li>Who is Jonathan?</li>
-    </ul>
-    <button id="install_pwa">Install PWA</button>
+    <header>
+        <div class="title">
+            <a href="/">
+                <img src="/favicon.svg" alt="Lightbulb image" class="drawing" /> Jonathan Bowman
+            </a>
+        </div>
+        <nav>
+        </nav>
+        <div class="menu" id="topmenu_trigger">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8">
+                <title>Navigation Menu</title>
+                <path d="M0 0v1h8v-1h-8zm0 2.97v1h8v-1h-8zm0 3v1h8v-1h-8z" transform="translate(0 1)" />
+            </svg>
+            <ul id="topmenu">
+                <li><a href="/about">About</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <ul class="biglist">
+            <li id="install_pwa">Install PWA</li>
+            <li><a href="/">Articles</a></li>
+            <li><a href="/">Experience</a></li>
+            <li><a href="/">Who is Jonathan?</a></li>
+        </ul>
+    </main>
+    <footer>
+        <p>Copyright 2022 Jonathan Bowman. All written article content and code contained on this site may be freely
+            shared in
+            compliance with <a href="http://www.apache.org/licenses/LICENSE-2.0">the Apache License, Version 2.0</a>,
+            and is provided “AS IS” without warranties or conditions of any kind.</p>
+    </footer>
 </body>
 
 </html>

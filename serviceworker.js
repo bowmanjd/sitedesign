@@ -57,7 +57,7 @@ const enableNavigationPreload = async () => {
 
 self.addEventListener('activate', event => {
   event.waitUntil(enableNavigationPreload());
-  self.clients.claim();
+  // Self.clients.claim();
 });
 
 self.addEventListener('install', event => {
@@ -69,7 +69,7 @@ self.addEventListener('install', event => {
       '/js/utility.js',
     ]),
   );
-  self.skipWaiting();
+  // Self.skipWaiting();
 });
 
 self.addEventListener('fetch', event => {
