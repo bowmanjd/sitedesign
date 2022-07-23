@@ -22,8 +22,9 @@ const registerServiceWorker = async () => {
 
 window.addEventListener('beforeinstallprompt', event => {
   // Prevent Chrome 67 and earlier from automatically showing the prompt
-  // event.preventDefault();
+  event.preventDefault();
   // Stash the event so it can be triggered later.
+  let deferredPrompt = event;
 
   const installButton = document.querySelector('#install_pwa');
 
@@ -32,14 +33,16 @@ window.addEventListener('beforeinstallprompt', event => {
   installButton.addEventListener('click', () => {
     installButton.style.display = 'none';
     // Show the prompt
-    event.prompt();
+    deferredPrompt.prompt();
     // Wait for the user to respond to the prompt
-    event.userChoice.then(choiceResult => {
+    deferredPrompt.userChoice.then(choiceResult => {
       if (choiceResult.outcome === 'accepted') {
         console.log('User decided to install');
       } else {
         console.log('User dismissed the installation prompt');
       }
+
+      deferredPrompt = null;
     });
   });
 });
