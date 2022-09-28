@@ -1,26 +1,26 @@
 {
-    "name": "Jonathan Bowman",
-    "short_name": "bowmanjd",
-    "description": "Tech articles by Jonathan Bowman",
-    "icons": [
-        {
-            "src": "/favicon.svg",
-            "sizes": "any",
-            "purpose": "maskable"
-        },
-        {
-            "src": "/favicon.png",
-            "sizes": "512x512 192x192",
-            "type": "image/png",
-            "purpose": "any"
-        }
-    ],
-    "display": "fullscreen",
-    "lang": "en-US",
-    "orientation": "any",
-    "prefer_related_applications": false,
-    "scope": "/",
-    "start_url": "/",
-    "background_color": "black",
-    "theme_color": "black"
+	"name": "Jonathan Bowman",
+	"short_name": "bowmanjd",
+	"description": "Tech articles by Jonathan Bowman",
+	"icons": [
+		{
+			"src": "/favicon.svg",
+			"sizes": "any",
+			"purpose": "maskable"
+		},
+		{
+			"src": "/favicon.png",
+			"sizes": "512x512 192x192",
+			"type": "image/png",
+			"purpose": "any"
+		}
+	],
+	"display": "fullscreen",
+	"lang": "en-US",
+	"orientation": "any",
+	"prefer_related_applications": false,
+	"scope": "/",
+	"start_url": "/",
+	"background_color": "black",
+	"theme_color": "black"
 }
