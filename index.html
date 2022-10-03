@@ -3,236 +3,71 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <title>Jonathan Bowman</title>
-    <meta name="description" content="Content by Jonathan Bowman" />
-    <meta name="author" content="Jonathan Bowman" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="black" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <link rel="icon" href="/favicon.svg" />
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="apple-touch-icon" href="/favicon.svg" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="apple-mobile-web-app-title" content="Jonathan Bowman" />
-    <script src="/js/utility.js"></script>
-    <style>
-        :root {
-            --bgcolor: #f5f2f0;
-            --fgcolor: #111;
-            --fgfilter: brightness(10%);
-            --linkcolor: #905;
-            --specialfgcolor: #07a;
-            --pagewidth: 100%;
-            --darkbgcolor: #000;
-            --darkfgcolor: #ddd;
-            --darkfgfilter: brightness(90%);
-            --darklinkcolor: #e9c163;
-            --darkspecialfgcolor: #8da;
-        }
+	<meta charset="utf-8" />
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bgcolor: var(--darkbgcolor);
-                --fgcolor: var(--darkfgcolor);
-                --fgfilter: var(--darkfgfilter);
-                --linkcolor: var(--darklinkcolor);
-                --specialfgcolor: var(--darkspecialfgcolor);
-            }
-        }
-
-
-
-        @media all and (min-width: 50rem) {
-
-            :root {
-                --pagewidth: 50rem
-            }
-        }
-
-
-        body.darktheme {
-            --bgcolor: var(--darkbgcolor);
-            --fgcolor: var(--darkfgcolor);
-            --fgfilter: var(--darkfgfilter);
-            --linkcolor: var(--darklinkcolor);
-            --specialfgcolor: var(--darkspecialfgcolor);
-        }
-
-
-        html,
-        body {
-            color: var(--fgcolor);
-            fill: var(--fgcolor);
-            background-color: var(--bgcolor);
-            display: flex;
-            flex-direction: column;
-            font-family: system-ui, sans-serif;
-            height: 100%;
-            padding: 0;
-            margin: 0;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        header,
-        main,
-        footer {
-            margin: 0 auto;
-            padding: 0 .25rem;
-            width: var(--pagewidth);
-        }
-
-        a {
-            color: var(--linkcolor);
-        }
-
-        .drawing {
-            filter: var(--fgfilter)
-        }
-
-
-        header {
-            align-items: center;
-            display: flex;
-            flex-direction: row;
-            flex-shrink: 0;
-            font-size: 1.5rem;
-        }
-
-        header .title {
-            flex-shrink: 0;
-            font-weight: bolder;
-            height: 2.5rem;
-            line-height: 2.5rem;
-        }
-
-        header .title a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        header nav {
-            flex: 1 0 auto;
-        }
-
-        header .menu {
-            flex-shrink: 0;
-            padding-right: .5rem;
-            position: relative;
-        }
-
-        header .menu ul {
-            padding: 1rem;
-            line-height: 2rem;
-            margin: 0;
-            position: absolute;
-            right: 0;
-            top: 2rem;
-        }
-
-        header svg,
-        header img {
-            width: 1.5rem;
-            height: 1.5rem;
-        }
-
-        header .menu a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        ul.biglist {
-            line-height: 1.75em;
-            list-style: none outside;
-            font-size: xx-large;
-            padding: 0;
-        }
-
-        ul.biglist a {
-            border-bottom: 2px solid var(--fgcolor);
-            text-decoration: none;
-            color: var(--specialfgcolor);
-        }
-
-        main {
-            flex: 1 0 auto;
-            align-items: center;
-            justify-content: center;
-        }
-
-        footer {
-            flex-shrink: 0;
-            font-size: 0.8rem;
-        }
-
-        #install_pwa {
-            display: none;
-            cursor: pointer;
-        }
-
-        #skipnav {
-            background-color: var(--bgcolor);
-            padding: .5rem;
-            position: absolute;
-            top: -3rem;
-            left: 0;
-            transition: top 1s ease-out;
-            z-index: 100;
-        }
-
-        #skipnav:focus {
-            top: 0;
-            left: 0;
-        }
-
-        #topmenu {
-            display: none
-        }
-    </style>
+	<title>Jonathan Bowman</title>
+	<meta name="description" content="Content by Jonathan Bowman" />
+	<meta name="author" content="Jonathan Bowman" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="theme-color" content="black" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<link rel="icon" href="/favicon.svg" />
+	<link rel="manifest" href="/manifest.json" />
+	<link rel="apple-touch-icon" href="/favicon.svg" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="apple-mobile-web-app-title" content="Jonathan Bowman" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+	<script src="/js/utility.js"></script>
 </head>
 
 <body>
-    <a href="#maincontent" id="skipnav">Skip to main content</a>
-    <header>
-        <div class="title">
-            <a href="/" title="Go to home page">
-                <img src="/favicon.svg" alt="Lightbulb image" class="drawing" /> Jonathan Bowman
-            </a>
-        </div>
-        <nav>
-        </nav>
-        <div class="menu">
-            👁
-        </div>
-        <div class="menu" id="topmenu_trigger">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8" role="img" aria-labelledby="title desc">>
-                <title id="title">Navigation Menu</title>
-                <desc id="desc">Menu with settings and links</desc>
-                <path d="M0 0v1h8v-1h-8zm0 2.97v1h8v-1h-8zm0 3v1h8v-1h-8z" transform="translate(0 1)" />
-            </svg>
-            <ul id="topmenu">
-                <li><a href="/about">About</a></li>
-            </ul>
-        </div>
-    </header>
-    <main id="maincontent">
-        <ul class="biglist">
-            <li id="install_pwa">Install PWA</li>
-            <li><a href="/">Articles</a></li>
-            <li><a href="/">Experience</a></li>
-            <li><a href="/">Who is Jonathan?</a></li>
-        </ul>
-    </main>
-    <footer>
-        <p>Copyright 2022 Jonathan Bowman. All written article content and code contained on this site may be freely
-            shared in
-            compliance with <a href="http://www.apache.org/licenses/LICENSE-2.0">the Apache License, Version 2.0</a>,
-            and is provided “AS IS” without warranties or conditions of any kind.</p>
-    </footer>
+	<a href="#maincontent" id="skipnav">Skip to main content</a>
+	<header>
+		<div class="title">
+			<a href="/" title="Go to home page">
+				<img src="/favicon.svg" alt="Lightbulb image" class="drawing" /> Jonathan Bowman
+			</a>
+		</div>
+		<nav>
+		</nav>
+		<div class="menu">
+			<button class="topmenu theme-switcher">
+				Theme
+			</button>
+			<ul class="hidden">
+				<li><button class="theme-system"> System</button></li>
+				<li><button class="theme-light"> Light</button></li>
+				<li><button class="theme-dark"> Dark</button></li>
+			</ul>
+		</div>
+		<div class="menu">
+			<button class="topmenu">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8" role="img" aria-labelledby="title desc">>
+					<title id="title">Navigation Menu</title>
+					<desc id="desc">Menu with settings and links</desc>
+					<path d="M0 0v1h8v-1h-8zm0 2.97v1h8v-1h-8zm0 3v1h8v-1h-8z" transform="translate(0 1)" />
+				</svg>
+			</button>
+			<ul class="hidden">
+				<li><a href="/about">About</a></li>
+			</ul>
+		</div>
+	</header>
+	<main id="maincontent">
+		<ul class="biglist">
+			<li id="install_pwa">Install PWA</li>
+			<li><a href="/">Articles</a></li>
+			<li><a href="/">Experience</a></li>
+			<li><a href="/">Who is Jonathan?</a></li>
+		</ul>
+	</main>
+	<footer>
+		<p>Copyright 2022 Jonathan Bowman. All written article content and code contained on this site may be freely
+			shared in
+			compliance with <a href="http://www.apache.org/licenses/LICENSE-2.0">the Apache License, Version 2.0</a>,
+			and is provided “AS IS” without warranties or conditions of any kind.</p>
+	</footer>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-const cacheName = 'v2';
+const cacheName = 'v3';
 
 const addResourcesToCache = async resources => {
   const cache = await caches.open(cacheName);
@@ -67,6 +67,7 @@ self.addEventListener('install', event => {
       '/favicon.svg',
       '/favicon.png',
       '/js/utility.js',
+      '/css/style.css',
     ]),
   );
   // Self.skipWaiting();

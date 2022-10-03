@@ -48,3 +48,54 @@ window.addEventListener('beforeinstallprompt', event => {
 });
 
 registerServiceWorker();
+
+const closeMenus = (exclude = false) => {
+  const menus = document.querySelectorAll('.menu ul');
+  menus.forEach(m => {
+    if (exclude !== m) {
+      m.classList.add('hidden');
+    }
+  });
+};
+
+const switchTheme = theme => {
+  const bodyClasses = document.body.classList;
+  switch (theme) {
+    case 'dark':
+      bodyClasses.add('darktheme');
+      bodyClasses.remove('lighttheme');
+      break;
+    case 'light':
+      bodyClasses.add('lighttheme');
+      bodyClasses.remove('darktheme');
+      break;
+    case 'system':
+      bodyClasses.remove('darktheme');
+      bodyClasses.remove('lighttheme');
+    default:
+      break;
+  }
+};
+
+window.addEventListener('click', e => {
+  const menuButton = e.target.closest('.menu button.topmenu');
+  if (menuButton) {
+    const menu = menuButton.parentElement.querySelector('ul');
+    closeMenus(menu);
+    menu.classList.toggle('hidden');
+  } else {
+    closeMenus();
+    if (e.target.matches('.theme-dark')) {
+      switchTheme('dark');
+    } else if (e.target.matches('.theme-light')) {
+      switchTheme('light');
+    } else if (e.target.matches('.theme-system')) {
+      switchTheme('system');
+    }
+  }
+});
+window.addEventListener('keyup', e => {
+  if (e.keyCode === 27) {
+    closeMenus();
+  }
+});
