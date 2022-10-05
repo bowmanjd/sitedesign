@@ -54,27 +54,20 @@ const closeMenus = (exclude = false) => {
   menus.forEach(m => {
     if (exclude !== m) {
       m.classList.add('hidden');
+      m.closest('.menu').querySelector('button.topmenu').setAttribute('aria-expanded', 'false');
     }
   });
 };
 
 const switchTheme = theme => {
   const bodyClasses = document.body.classList;
-  switch (theme) {
-    case 'dark':
-      bodyClasses.add('darktheme');
-      bodyClasses.remove('lighttheme');
-      break;
-    case 'light':
-      bodyClasses.add('lighttheme');
-      bodyClasses.remove('darktheme');
-      break;
-    case 'system':
-      bodyClasses.remove('darktheme');
-      bodyClasses.remove('lighttheme');
-    default:
-      break;
+  bodyClasses.remove('darktheme');
+  bodyClasses.remove('lighttheme');
+  if (theme !== 'system') {
+    bodyClasses.add(`${theme}theme`);
   }
+
+  window.localStorage.setItem('theme', theme);
 };
 
 window.addEventListener('click', e => {
@@ -83,19 +76,22 @@ window.addEventListener('click', e => {
     const menu = menuButton.parentElement.querySelector('ul');
     closeMenus(menu);
     menu.classList.toggle('hidden');
+    menuButton.setAttribute('aria-expanded', (!(menuButton.getAttribute('aria-expanded') === 'true')).toString());
   } else {
     closeMenus();
-    if (e.target.matches('.theme-dark')) {
-      switchTheme('dark');
-    } else if (e.target.matches('.theme-light')) {
-      switchTheme('light');
-    } else if (e.target.matches('.theme-system')) {
-      switchTheme('system');
+    if (e.target.dataset.theme) {
+      switchTheme(e.target.dataset.theme);
     }
   }
 });
 window.addEventListener('keyup', e => {
   if (e.keyCode === 27) {
     closeMenus();
+  }
+});
+window.addEventListener('DOMContentLoaded', () => {
+  const theme = window.localStorage.getItem('theme');
+  if (theme) {
+    switchTheme(theme);
   }
 });
