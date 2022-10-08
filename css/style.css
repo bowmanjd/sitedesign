@@ -195,6 +195,12 @@ main {
 
 footer {
   flex-shrink: 0;
+}
+footer nav {
+  font-size: 1.5rem;
+  text-align: center;
+}
+.fineprint {
   font-size: 0.8rem;
 }
 button {
@@ -229,11 +235,6 @@ button[data-theme="light"]::before {
 }
 button[data-theme="dark"]::before {
   content: var(--darkcircle);
-}
-
-#install_pwa {
-  display: none;
-  cursor: pointer;
 }
 
 #skipnav {
